@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>MVVM Property</Title>
+            <Author>Dean Faizal</Author>
+            <HelpUrl>https://github.com/DeanFaizal/MobCATSnippets</HelpUrl>
+            <Keywords>
+                <Keyword>MVVM</Keyword>
+                <Keyword>Model-View-ViewModel</Keyword>
+            </Keywords>
+            <Description>Create an MVVM property</Description>
+            <Shortcut>mvvm</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[private $type$ $_privateName$;
+public $type$ $PublicName$
+{
+    get => $_privateName$;
+    set => SetPropertyChanged(ref $_privateName$, value);
+}]]>
+            </Code>
+            <Declarations>
+                <Object>
+                    <ID>type</ID>
+                    <Default>Object</Default>
+                </Object>
+                <Literal>
+                    <ID>_privateName</ID>
+                    <Default>_privateName</Default>
+                </Literal>
+                <Literal>
+                    <ID>PublicName</ID>
+                    <Default>PublicName</Default>
+                </Literal>
+            </Declarations>
+            <Imports>
+                <Import>
+                    <Namespace>Microsoft.MobCAT.MVVM</Namespace>
+                </Import>
+            </Imports>
+        </Snippet>
+    </CodeSnippet>
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Xamarin Forms MVVM Property</Title>
+            <Author>Dean Faizal</Author>
+            <HelpUrl>https://github.com/DeanFaizal/MobCATSnippets</HelpUrl>
+            <Keywords>
+                <Keyword>MVVM</Keyword>
+                <Keyword>Model-View-ViewModel</Keyword>
+            </Keywords>
+            <Description>Create a Xamarin Forms MVVM property</Description>
+            <Shortcut>mvvmxf</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[private $type$ $_privateName$;
+public $type$ $PublicName$
+{
+    get => $_privateName$;
+    set => SetProperty(ref $_privateName$, value);
+}]]>
+            </Code>
+            <Declarations>
+                <Object>
+                    <ID>type</ID>
+                    <Default>Object</Default>
+                </Object>
+                <Literal>
+                    <ID>_privateName</ID>
+                    <Default>_privateName</Default>
+                </Literal>
+                <Literal>
+                    <ID>PublicName</ID>
+                    <Default>PublicName</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Bindable Property</Title>
+            <Author>Dean Faizal</Author>
+            <HelpUrl>https://github.com/DeanFaizal/MobCATSnippets</HelpUrl>
+            <Keywords>
+                <Keyword>MVVM</Keyword>
+                <Keyword>Model-View-ViewModel</Keyword>
+            </Keywords>
+            <Description>Create a bindable property</Description>
+            <Shortcut>bp</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[public static readonly BindableProperty $name$Property = BindableProperty.Create(nameof($name$), typeof($type$), typeof($owner$), default($type$));
+public $type$ $name$
+{
+    get { return ($type$)GetValue($name$Property); }
+    set { SetValue($name$Property, value); }
+}]]>
+            </Code>
+            <Declarations>
+                <Object>
+                    <ID>type</ID>
+                    <Default>Object</Default>
+                </Object>
+                <Object>
+                    <ID>owner</ID>
+                    <Default>Object</Default>
+                </Object>
+                <Literal>
+                    <ID>name</ID>
+                    <Default>name</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Attached Property</Title>
+            <Author>Dean Faizal</Author>
+            <HelpUrl>https://github.com/DeanFaizal/MobCATSnippets</HelpUrl>
+            <Keywords>
+                <Keyword>MVVM</Keyword>
+                <Keyword>Model-View-ViewModel</Keyword>
+            </Keywords>
+            <Description>Create an attached property</Description>
+            <Shortcut>ap</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[public static readonly BindableProperty $name$Property = BindableProperty.CreateAttached("$name$", typeof($type$), typeof($owner$), default($type$));
+public static $type$ Get$name$(BindableObject view) => ($type$)view.GetValue($name$Property);
+public static void Set$name$(BindableObject view, $type$ value) => view.SetValue($name$Property, value);]]>
+            </Code>
+            <Declarations>
+                <Object>
+                    <ID>type</ID>
+                    <Default>Object</Default>
+                </Object>
+                <Object>
+                    <ID>owner</ID>
+                    <Default>Object</Default>
+                </Object>
+                <Literal>
+                    <ID>name</ID>
+                    <Default>name</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>MVVM Command</Title>
+            <Author>Dean Faizal</Author>
+            <HelpUrl>https://github.com/DeanFaizal/MobCATSnippets</HelpUrl>
+            <Keywords>
+                <Keyword>MVVM</Keyword>
+                <Keyword>Model-View-ViewModel</Keyword>
+            </Keywords>
+            <Description>Create an MVVM command</Description>
+            <Shortcut>cmd</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[private Command $_privateName$;
+public Command $PublicName$ => $_privateName$ ?? ($_privateName$ = new Command(() =>
+{
+}));]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>_privateName</ID>
+                    <Default>_privateName</Default>
+                </Literal>
+                <Literal>
+                    <ID>PublicName</ID>
+                    <Default>PublicName</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>MVVM MobCAT Async Command</Title>
+            <Author>Dean Faizal</Author>
+            <HelpUrl>https://github.com/DeanFaizal/MobCATSnippets</HelpUrl>
+            <Keywords>
+                <Keyword>MVVM</Keyword>
+                <Keyword>Model-View-ViewModel</Keyword>
+            </Keywords>
+            <Description>Create a MobCAT MVVM async command</Description>
+            <Shortcut>cmda</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[private AsyncCommand $_privateName$;
+public AsyncCommand $PublicName$ => $_privateName$ ?? ($_privateName$ = new AsyncCommand(async () =>
+{
+}));]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>_privateName</ID>
+                    <Default>_privateName</Default>
+                </Literal>
+                <Literal>
+                    <ID>PublicName</ID>
+                    <Default>PublicName</Default>
+                </Literal>
+            </Declarations>
+            <Imports>
+                <Import>
+                    <Namespace>Microsoft.MobCAT.MVVM</Namespace>
+                </Import>
+            </Imports>
+        </Snippet>
+    </CodeSnippet>
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>JSON Property</Title>
+            <Author>Dean Faizal</Author>
+            <HelpUrl>https://github.com/DeanFaizal/MobCATSnippets</HelpUrl>
+            <Keywords>
+                <Keyword>Json</Keyword>
+                <Keyword>Property</Keyword>
+            </Keywords>
+            <Description>Create a JSON property</Description>
+            <Shortcut>jp</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[[JsonProperty("$jsonPropertyName$")]
+public $type$ $PropertyName$ { get; set; }]]>
+            </Code>
+            <Declarations>
+                <Object>
+                    <ID>type</ID>
+                    <Default>Object</Default>
+                </Object>
+                <Literal>
+                    <ID>jsonPropertyName</ID>
+                    <Default>jsonPropertyName</Default>
+                </Literal>
+                <Literal>
+                    <ID>PropertyName</ID>
+                    <Default>PropertyName</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>POP UITest Query</Title>
+            <Author>Dean Faizal</Author>
+            <HelpUrl>https://github.com/DeanFaizal/MobCATSnippets</HelpUrl>
+            <Keywords>
+                <Keyword>POP</Keyword>
+                <Keyword>Page Object Pattern</Keyword>
+                <Keyword>UITest</Keyword>
+                <Keyword>Xamarin</Keyword>
+            </Keywords>
+            <Description>Create a POP query</Description>
+            <Shortcut>qu</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[protected readonly Query $name$;
+$name$ = x => x.Marked(nameof($name$));]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>name</ID>
+                    <Default>name</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>POP UITest Query Using Alias</Title>
+            <Author>Dean Faizal</Author>
+            <HelpUrl>https://github.com/DeanFaizal/MobCATSnippets</HelpUrl>
+            <Keywords>
+                <Keyword>POP</Keyword>
+                <Keyword>Page Object Pattern</Keyword>
+                <Keyword>UITest</Keyword>
+                <Keyword>Xamarin</Keyword>
+            </Keywords>
+            <Description>Create a POP query alias</Description>
+            <Shortcut>qusing</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[using Query = System.Func<Xamarin.UITest.Queries.AppQuery, Xamarin.UITest.Queries.AppQuery>;]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>name</ID>
+                    <Default>name</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>POP UITest Trait</Title>
+            <Author>Dean Faizal</Author>
+            <HelpUrl>https://github.com/DeanFaizal/MobCATSnippets</HelpUrl>
+            <Keywords>
+                <Keyword>POP</Keyword>
+                <Keyword>Page Object Pattern</Keyword>
+                <Keyword>UITest</Keyword>
+                <Keyword>Xamarin</Keyword>
+            </Keywords>
+            <Description>Create a POP query alias</Description>
+            <Shortcut>qusing</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[protected override PlatformQuery Trait => new PlatformQuery
+{
+Android = x => x.Marked(nameof($AutomationId$)),
+iOS = null
+};]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>AutomationId</ID>
+                    <Default>AutomationId</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

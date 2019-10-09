@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="MobCATSnippets.3e9d5330-6544-4ef8-81fe-54f137fcbfcd" Version="1.0" Language="en-US" Publisher="Dean Faizal" />
+        <DisplayName>MobCATSnippets</DisplayName>
+        <Description xml:space="preserve">MobCAT Snippets for Visual Studio 2019 VSIX.
+
+https://gist.github.com/DeanFaizal/145e1d8cf86bd6a3cc15255ba4d990cd
+
+MobCAT Library:
+https://github.com/xamcat/mobcat-library
+
+</Description>
+        <MoreInfo>https://gist.github.com/DeanFaizal/145e1d8cf86bd6a3cc15255ba4d990cd</MoreInfo>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    </Dependencies>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="MobCATSnippets.pkgdef" />
+    </Assets>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+</PackageManifest>
